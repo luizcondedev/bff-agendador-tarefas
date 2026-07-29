@@ -1,7 +1,8 @@
 package com.luizconde.bffagendadortarefas.business;
 
 
-import com.luizconde.bffagendadortarefas.business.dto.TarefasDTO;
+import com.luizconde.bffagendadortarefas.business.dto.TarefasRequestDTO;
+import com.luizconde.bffagendadortarefas.business.dto.TarefasResponseDTO;
 import com.luizconde.bffagendadortarefas.infrastructure.client.TarefasClient;
 import com.luizconde.bffagendadortarefas.infrastructure.enums.StatusNotificacaoEnum;
 import lombok.RequiredArgsConstructor;
@@ -16,17 +17,17 @@ public class TarefasService {
     private final TarefasClient client;
 
 
-    public TarefasDTO salvarTarefa(TarefasDTO dto, String token) {
+    public TarefasResponseDTO salvarTarefa(TarefasRequestDTO dto, String token) {
         return client.salvaTarefa(dto, token);
     }
 
-    public List<TarefasDTO> buscaTarefasPorPeriodo(LocalDateTime dataInicial,
-                                                   LocalDateTime dataFinal,
-                                                   String token) {
+    public List<TarefasResponseDTO> buscaTarefasPorPeriodo(LocalDateTime dataInicial,
+                                                           LocalDateTime dataFinal,
+                                                           String token) {
         return client.buscaTarefasPorPeriodo(dataInicial, dataFinal, token);
     }
 
-    public List<TarefasDTO> buscaTarefasPorEmail(String token) {
+    public List<TarefasResponseDTO> buscaTarefasPorEmail(String token) {
         return client.buscaTarefasPorEmail(token);
     }
 
@@ -35,13 +36,13 @@ public class TarefasService {
         client.deletaUsuarioPorId(id, token);
     }
 
-    public TarefasDTO alteraStatus(StatusNotificacaoEnum status, String id,
-                                   String token) {
+    public TarefasResponseDTO alteraStatus(StatusNotificacaoEnum status, String id,
+                                           String token) {
         return client.alteraStatusNotificacao(status, id, token);
     }
 
-    public TarefasDTO updateTarefas(TarefasDTO dto, String id,
-                                    String token) {
+    public TarefasResponseDTO updateTarefas(TarefasRequestDTO dto, String id,
+                                            String token) {
         return client.updateTarefas(dto, id, token);
     }
 }
