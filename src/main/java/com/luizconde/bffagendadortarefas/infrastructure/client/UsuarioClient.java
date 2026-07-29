@@ -1,6 +1,7 @@
 package com.luizconde.bffagendadortarefas.infrastructure.client;
 
 import com.luizconde.bffagendadortarefas.business.dto.EnderecoDTO;
+import com.luizconde.bffagendadortarefas.business.dto.LoginRequestDTO;
 import com.luizconde.bffagendadortarefas.business.dto.TelefoneDTO;
 import com.luizconde.bffagendadortarefas.business.dto.UsuarioDTO;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -17,7 +18,7 @@ public interface UsuarioClient {
     UsuarioDTO criarUsuario(@RequestBody UsuarioDTO usuarioDTO);
 
     @PostMapping("/usuarios/login")
-     String login(@RequestBody UsuarioDTO usuarioDTO);
+     String login(@RequestBody LoginRequestDTO loginRequestDTO);
 
     @PostMapping("/usuarios/endereco")
     EnderecoDTO cadastroEndereco(@RequestBody EnderecoDTO enderecoDTO,

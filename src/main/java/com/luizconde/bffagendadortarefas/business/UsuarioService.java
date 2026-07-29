@@ -1,6 +1,7 @@
 package com.luizconde.bffagendadortarefas.business;
 
 import com.luizconde.bffagendadortarefas.business.dto.EnderecoDTO;
+import com.luizconde.bffagendadortarefas.business.dto.LoginRequestDTO;
 import com.luizconde.bffagendadortarefas.business.dto.TelefoneDTO;
 import com.luizconde.bffagendadortarefas.business.dto.UsuarioDTO;
 import com.luizconde.bffagendadortarefas.infrastructure.client.UsuarioClient;
@@ -19,8 +20,8 @@ public class UsuarioService {
         return client.criarUsuario(usuarioDTO);
     }
 
-    public String login(UsuarioDTO usuarioDTO){
-        return client.login(usuarioDTO);
+    public String login(LoginRequestDTO loginRequestDTO){
+        return client.login(loginRequestDTO);
     }
 
     public UsuarioDTO atualizaUsuario(String token, UsuarioDTO usuarioDTO){
