@@ -26,7 +26,7 @@ public interface TarefasClient {
 
     @DeleteMapping("/tarefas")
     Void deletaUsuarioPorId(@RequestParam("id") String id,
-                                                   @RequestHeader("Authorization") String token);
+                            @RequestHeader("Authorization") String token);
 
     @PatchMapping("/tarefas")
     TarefasResponseDTO alteraStatusNotificacao(@RequestParam("status") StatusNotificacaoEnum status,
